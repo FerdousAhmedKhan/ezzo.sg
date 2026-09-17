@@ -1,0 +1,3 @@
+<?php $meta=['title'=>'Thank You | ezzo.sg','description'=>'Thank you for contacting ezzo.sg.']; include __DIR__.'/includes/header.php'; ?>
+<section class="page-hero"><div class="container"><div class="eyebrow">Thank you</div><h1>Your inquiry has been received.</h1><p>Our team will review your request and contact you as soon as possible.</p><div class="hero-actions"><a class="btn btn-accent" href="/products">Explore Products</a><a class="btn btn-light" href="<?=e(whatsapp_link('Hello ezzo.sg, I have submitted a website inquiry.'))?>">Message on WhatsApp</a></div></div></section>
+<?php include __DIR__.'/includes/footer.php'; ?>
