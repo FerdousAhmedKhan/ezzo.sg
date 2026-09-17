@@ -1,0 +1,21 @@
+EZZO CSS + Template Repair Patch
+
+Upload/extract these files into the active website root where index.php is located.
+Overwrite existing files.
+
+Important:
+1. In cPanel File Manager, enable "Show Hidden Files" so .htaccess is overwritten.
+2. Overwrite /assets/css/style.css, /includes/header.php, /includes/footer.php, /product.php and /admin/inc/header.php.
+3. Clear browser cache, LiteSpeed cache and Cloudflare cache if enabled.
+4. Test:
+   /product/127-sliding-door
+   /admin/categories.php
+   /about
+   /quote
+
+This patch fixes:
+- old product template still loading on product detail pages
+- huge stacked product images caused by old markup/CSS mismatch
+- admin page appearing unstyled/plain text
+- cached CSS by adding ?v=20260622-cssfix
+- clean extensionless frontend URLs

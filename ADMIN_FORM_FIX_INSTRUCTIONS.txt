@@ -1,0 +1,24 @@
+EZZO admin form/CSS repair patch
+
+Upload this ZIP into the same website root where index.php is located.
+Extract it and choose "Overwrite existing files".
+
+Files changed:
+- admin/inc/header.php
+- admin/inc/footer.php
+- assets/css/admin.css
+
+What this fixes:
+- Admin navigation appearing as plain inline text
+- Admin CSS not applying correctly after cPanel upload/cache
+- Admin forms looking broken or hard to click/use
+- Malformed admin footer closing tags
+
+After upload:
+1. Open the admin page in Incognito.
+2. Hard refresh: Cmd + Shift + R on Mac / Ctrl + F5 on Windows.
+3. If using LiteSpeed or Cloudflare, purge all cache.
+4. Test: /admin/categories.php and try adding a test category.
+
+Important:
+This patch fixes the admin layout/form interface. If saving still fails, check cPanel -> File Manager -> error_log. A save failure after clicking usually means a database column is missing or the MySQL schema update did not fully import.
