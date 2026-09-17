@@ -1,0 +1,3 @@
+<?php $admin_title='Quote Requests'; include __DIR__.'/inc/header.php'; $rows=fetch_all("SELECT * FROM quote_requests ORDER BY id DESC"); ?>
+<table class="table"><tr><th>Date</th><th>Contact</th><th>Project</th><th>Products</th><th>Details</th></tr><?php foreach($rows as $r): ?><tr><td><?= e($r['created_at']) ?></td><td><?= e($r['name']) ?><br><?= e($r['phone']) ?><br><?= e($r['email']) ?></td><td><?= e($r['project_type']) ?><br><?= e($r['city']) ?><br><?= e($r['timeline']) ?></td><td><?= e($r['product_category']) ?></td><td><?= nl2br(e($r['project_details'])) ?><br><strong>Message:</strong> <?= nl2br(e($r['message'])) ?></td></tr><?php endforeach; ?></table>
+<?php include __DIR__.'/inc/footer.php'; ?>

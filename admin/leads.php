@@ -1,0 +1,3 @@
+<?php $admin_title='Contact Form Leads'; include __DIR__.'/inc/header.php'; $rows=fetch_all("SELECT * FROM leads ORDER BY id DESC"); ?>
+<table class="table"><tr><th>Date</th><th>Name</th><th>Phone</th><th>Email</th><th>Interest</th><th>Message</th></tr><?php foreach($rows as $r): ?><tr><td><?= e($r['created_at']) ?></td><td><?= e($r['name']) ?><br><?= e($r['city']) ?></td><td><?= e($r['phone']) ?></td><td><?= e($r['email']) ?></td><td><?= e($r['product_interest']) ?><br><small><?= e($r['source_page']) ?></small></td><td><?= nl2br(e($r['message'])) ?></td></tr><?php endforeach; ?></table>
+<?php include __DIR__.'/inc/footer.php'; ?>

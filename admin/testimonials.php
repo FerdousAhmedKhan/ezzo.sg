@@ -1,0 +1,12 @@
+<?php
+$admin_title='Testimonials'; include __DIR__.'/inc/header.php'; $pdo=db();
+if($pdo && isset($_POST['delete'])){$pdo->prepare("DELETE FROM testimonials WHERE id=?")->execute([(int)$_POST['delete']]);}
+if($pdo && $_SERVER['REQUEST_METHOD']==='POST' && !isset($_POST['delete'])){
+ $id=(int)($_POST['id']??0); $data=[trim($_POST['client_name']??''),trim($_POST['client_role']??''),(int)($_POST['rating']??5),trim($_POST['content']??''),$_POST['status']??'published'];
+ if($id){$pdo->prepare("UPDATE testimonials SET client_name=?,client_role=?,rating=?,content=?,status=? WHERE id=?")->execute([...$data,$id]);}else{$pdo->prepare("INSERT INTO testimonials(client_name,client_role,rating,content,status,created_at) VALUES(?,?,?,?,?,NOW())")->execute($data);} header('Location: testimonials.php'); exit;
+}
+$edit=isset($_GET['id'])?fetch_one("SELECT * FROM testimonials WHERE id=?",[(int)$_GET['id']]):null; $t=$edit ?: ['id'=>'','client_name'=>'','client_role'=>'','rating'=>5,'content'=>'','status'=>'published']; $rows=fetch_all("SELECT * FROM testimonials ORDER BY id DESC");
+?>
+<div class="admin-card"><h2><?= $edit?'Edit':'Add' ?> Testimonial</h2><form method="post"><input type="hidden" name="id" value="<?= e($t['id']) ?>"><div class="form-grid"><input name="client_name" required placeholder="Client name" value="<?= e($t['client_name']) ?>"><input name="client_role" placeholder="Client role" value="<?= e($t['client_role']) ?>"><input name="rating" type="number" min="1" max="5" value="<?= e($t['rating']) ?>"><select name="status"><option>published</option><option <?= $t['status']==='draft'?'selected':'' ?>>draft</option></select><textarea class="full" name="content" required placeholder="Testimonial content"><?= e($t['content']) ?></textarea><button class="btn btn-dark full">Save Testimonial</button></div></form></div>
+<table class="table"><tr><th>Client</th><th>Rating</th><th>Content</th><th>Actions</th></tr><?php foreach($rows as $r): ?><tr><td><?= e($r['client_name']) ?><br><?= e($r['client_role']) ?></td><td><?= e($r['rating']) ?></td><td><?= e($r['content']) ?></td><td><a class="btn btn-small" href="testimonials.php?id=<?= e($r['id']) ?>">Edit</a><form method="post" style="display:inline"><button class="btn btn-small" name="delete" value="<?= e($r['id']) ?>" onclick="return confirm('Delete testimonial?')">Delete</button></form></td></tr><?php endforeach; ?></table>
+<?php include __DIR__.'/inc/footer.php'; ?>
