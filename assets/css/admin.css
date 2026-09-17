@@ -1,0 +1,269 @@
+/* EZZO admin repair stylesheet. Loaded after the public stylesheet. */
+body.admin-page {
+  margin: 0;
+  background: #f5f7f6;
+  color: #12212b;
+}
+
+body.admin-page * {
+  box-sizing: border-box;
+}
+.page-hero{position:relative;padding:150px 0 90px;min-height: 630px;background-size: cover;background-position: center;background-image: linear-gradient(237deg, #1c1c1c, #01010100), url(https://preview-ezzo.ezzogenics.com/assets/images/Asset%209.jpg);color:#fff;overflow:hidden}
+.ezzo-admin-layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 270px minmax(0, 1fr);
+  background: #f5f7f6;
+}
+
+.ezzo-admin-sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 24px 20px;
+  background: #061721;
+  color: #fff;
+  border-right: 1px solid rgba(255,255,255,.08);
+}
+
+.ezzo-admin-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 170px;
+  min-height: 58px;
+  margin-bottom: 24px;
+  padding: 8px 16px;
+  background: #fff;
+  border-radius: 999px;
+}
+
+.ezzo-admin-logo img {
+  display: block;
+  width: 140px;
+  max-height: 44px;
+  object-fit: contain;
+}
+
+.ezzo-admin-nav {
+  display: grid;
+  gap: 6px;
+}
+
+.ezzo-admin-nav a {
+  display: flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  color: rgba(255,255,255,.78);
+  text-decoration: none;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.ezzo-admin-nav a:hover,
+.ezzo-admin-nav a:focus {
+  color: #fff;
+  background: rgba(255,255,255,.10);
+  outline: none;
+}
+
+.ezzo-admin-main {
+  min-width: 0;
+  padding: 32px;
+}
+
+.ezzo-admin-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 26px;
+}
+
+.ezzo-admin-kicker {
+  display: inline-block;
+  margin-bottom: 6px;
+  color: #5d9426;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.ezzo-admin-topbar h1 {
+  margin: 0;
+  font-size: clamp(28px, 3vw, 44px);
+  line-height: 1;
+}
+
+.ezzo-admin-user {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 14px;
+  border: 1px solid #dce5e7;
+  border-radius: 999px;
+  background: #fff;
+  color: #60717d;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+body.admin-page .admin-card {
+  width: 100%;
+  margin: 0 0 22px;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid #dce5e7;
+  border-radius: 24px;
+  box-shadow: 0 14px 45px rgba(18, 56, 74, .08);
+}
+
+body.admin-page .admin-card h2 {
+  margin-top: 0;
+  font-family: inherit;
+  font-size: 24px;
+  letter-spacing: -.02em;
+}
+
+body.admin-page form {
+  margin: 0;
+}
+
+body.admin-page .form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+body.admin-page .full {
+  grid-column: 1 / -1;
+}
+
+body.admin-page input,
+body.admin-page select,
+body.admin-page textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 13px 15px;
+  border: 1px solid #dce5e7;
+  border-radius: 14px;
+  background: #fff;
+  color: #12212b;
+  font: inherit;
+}
+
+body.admin-page textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+body.admin-page input:focus,
+body.admin-page select:focus,
+body.admin-page textarea:focus {
+  border-color: #8cc63e;
+  outline: 3px solid rgba(140,198,62,.18);
+}
+
+body.admin-page .btn,
+body.admin-page button {
+  cursor: pointer;
+}
+
+body.admin-page .btn.full,
+body.admin-page button.full {
+  width: 100%;
+}
+
+body.admin-page .table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 14px 45px rgba(18, 56, 74, .08);
+}
+
+body.admin-page .table th,
+body.admin-page .table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #eef2f2;
+  text-align: left;
+  vertical-align: top;
+}
+
+body.admin-page .table th {
+  color: #12384a;
+  background: #edf4f5;
+  font-weight: 900;
+}
+
+body.admin-page .table tr:last-child td {
+  border-bottom: 0;
+}
+
+body.admin-page .admin-help,
+body.admin-page .notice {
+  margin-bottom: 18px;
+  padding: 15px 16px;
+  border: 1px solid #c8e8c8;
+  border-radius: 16px;
+  background: #eef8ee;
+  color: #315315;
+}
+
+body.admin-page .radio-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid #dce5e7;
+  border-radius: 14px;
+  background: #fff;
+  font-weight: 800;
+}
+
+body.admin-page .radio-card input {
+  width: auto;
+  min-height: auto;
+}
+
+@media (max-width: 980px) {
+  .ezzo-admin-layout {
+    grid-template-columns: 1fr;
+  }
+  .ezzo-admin-sidebar {
+    position: static;
+    height: auto;
+  }
+  .ezzo-admin-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .ezzo-admin-main {
+    padding: 20px;
+  }
+  .ezzo-admin-topbar {
+    display: block;
+  }
+  .ezzo-admin-user {
+    margin-top: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .ezzo-admin-nav,
+  body.admin-page .form-grid {
+    grid-template-columns: 1fr;
+  }
+  body.admin-page .full {
+    grid-column: auto;
+  }
+  body.admin-page .table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
